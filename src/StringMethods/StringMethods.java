@@ -32,20 +32,55 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
-		return null;
+		if(s1.length()>s2.length()) {
+			return s1;
+		}
+		else {
+		return s2;
+		}
 	}
 
 	
 	// if String s contains the word "underscores", change all of the spaces to underscores
 	public static String formatSpaces(String s) {
-		return null;
+		if(s.contains("underscores")) {
+			String newS=s.replace(' ', '_');
+			return newS;
+		}
+		else {
+		return s;
 	}
+		}
 
 	
 	// Return the name of the person whose LAST name would appear first if they were in alphabetical order
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
+		String tempString;
+		int i=0;
+		boolean reachedFirstName=false;
+		boolean reachedSpaceBetweenNames=false;
+		while(reachedFirstName==false){
+		if(s1.charAt(i)!=' ') {
+			reachedFirstName=true;
+		}
+		else {
+			System.out.println("space");
+		} 
+		i++;
+		}
+		while(reachedSpaceBetweenNames==false) {
+			if(s1.charAt(i)==' ') {
+				reachedSpaceBetweenNames=true;
+			}
+			else {
+				System.out.println("In first name");
+			}
+				i++;
+		}
+		char s1LastName=s1.charAt(i);
+		System.out.println(s1LastName);
 		return null;
 	}
 	
