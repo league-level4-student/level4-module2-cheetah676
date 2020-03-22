@@ -57,37 +57,115 @@ public class StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		String tempString;
+		String tempStrings1="";
 		int i=0;
-		boolean reachedFirstName=false;
-		boolean reachedSpaceBetweenNames=false;
-		while(reachedFirstName==false){
+		boolean reachedFirstNameFors1=false;
+		boolean reachedSpaceBetweenNamesFors1=false;
+		while(reachedFirstNameFors1==false){
 		if(s1.charAt(i)!=' ') {
-			reachedFirstName=true;
+			reachedFirstNameFors1=true;
+			tempStrings1+=s1.charAt(i);
 		}
 		else {
-			System.out.println("space");
+			
 		} 
 		i++;
 		}
-		while(reachedSpaceBetweenNames==false) {
+		while(reachedSpaceBetweenNamesFors1==false) {
 			if(s1.charAt(i)==' ') {
-				reachedSpaceBetweenNames=true;
+				reachedSpaceBetweenNamesFors1=true;
+				tempStrings1+=s1.charAt(i);
 			}
 			else {
-				System.out.println("In first name");
+				tempStrings1+=s1.charAt(i);
 			}
 				i++;
 		}
-		char s1LastName=s1.charAt(i);
-		System.out.println(s1LastName);
+		char s1LastNameChar=s1.charAt(i);
+		tempStrings1+=s1.charAt(i);
+		String s1LastName=Character.toString(s1LastNameChar);
+		
+		String tempStrings2="";
+		i=0;
+		boolean reachedFirstNameFors2=false;
+		boolean reachedSpaceBetweenNamesFors2=false;
+		while(reachedFirstNameFors2==false){
+		if(s2.charAt(i)!=' ') {
+			reachedFirstNameFors2=true;
+			tempStrings2+=s2.charAt(i);
+		}
+		else {
+			
+		} 
+		i++;
+		}
+		while(reachedSpaceBetweenNamesFors2==false) {
+			if(s2.charAt(i)==' ') {
+				reachedSpaceBetweenNamesFors2=true;
+				tempStrings2+=s2.charAt(i);
+			}
+			else {
+				tempStrings2+=s2.charAt(i);
+			}
+			i++;
+		}
+		char s2LastNameChar=s2.charAt(i);
+		tempStrings2+=s2.charAt(i);
+		String s2LastName=Character.toString(s2LastNameChar);
+		
+		String tempStrings3="";
+		i=0;
+		boolean reachedFirstNameFors3=false;
+		boolean reachedSpaceBetweenNamesFors3=false;
+		while(reachedFirstNameFors3==false){
+		if(s3.charAt(i)!=' ') {
+			reachedFirstNameFors3=true;
+			tempStrings3+=s3.charAt(i);
+		}
+		else {
+			
+		} 
+		i++;
+		}
+		while(reachedSpaceBetweenNamesFors3==false) {
+			if(s3.charAt(i)==' ') {
+				reachedSpaceBetweenNamesFors3=true;
+				tempStrings3+=s3.charAt(i);
+			}
+			else {
+				tempStrings3+=s3.charAt(i);
+			}
+				i++;
+		}
+		char s3LastNameChar=s3.charAt(i);
+		tempStrings3+=s3.charAt(i);
+		String s3LastName=Character.toString(s3LastNameChar);
+		
+System.out.println(s1LastName);
+System.out.println(s2LastName);
+System.out.println(s3LastName);
+		if(s1LastName.compareTo(s2LastName)<1 && s1LastName.compareTo(s3LastName)<1) {
+			return tempStrings1;
+		}
+		else if(s2LastName.compareTo(s1LastName)<1 && s2LastName.compareTo(s3LastName)<1) {
+			return tempStrings2;
+		}
+		else if (s3LastName.compareTo(s1LastName)<1 && s3LastName.compareTo(s2LastName)<1) {
+			return tempStrings3;
+		}
 		return null;
 	}
 	
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		return 0;
+		int sum=0;
+		for(int i=0; i<s.length(); i++) {
+			if(Character.isLetter(s.charAt(i))==false) {
+			sum=sum+Character.getNumericValue(s.charAt(i));
+		}
+		}
+		return sum;
 	}
 	
 	
