@@ -164,6 +164,9 @@ System.out.println(s3LastName);
 			if(Character.isLetter(s.charAt(i))==false) {
 			sum=sum+Character.getNumericValue(s.charAt(i));
 		}
+			else {
+				
+			}
 		}
 		return sum;
 	}
@@ -171,25 +174,78 @@ System.out.println(s3LastName);
 	
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		int charsInSubString=substring.length();
+		int goingThroughSubString=0;
+		int timesStringHadSubString=0;
+		int lettersMatch=0;
+		for(int i=0; i<s.length(); i++) {
+			if(s.charAt(i)==substring.charAt(goingThroughSubString)) {
+				lettersMatch++;
+				if(charsInSubString==lettersMatch) {
+					timesStringHadSubString++;
+					goingThroughSubString=0;
+					lettersMatch=0;
+					}
+				
+				else {
+					goingThroughSubString++;
+				}
+				}
+			else {
+				lettersMatch=0;
+				goingThroughSubString=0;
+			}
+			}
+		
+		return timesStringHadSubString;
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		return null;
+		byte[] plainText=s.getBytes();
+		byte keyThing=(byte)key;
+		String returner=Utilities.encrypt(plainText, keyThing);
+		return returner;
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		return null;
+		byte keyThing=(byte)key;
+		String returner=Utilities.decrypt(s, keyThing);
+		return returner;
 	}
 
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		return 0;
+		substring+=' ';
+		int charsInSubString=substring.length();
+		int goingThroughSubString=0;
+		int timesStringHadSubString=0;
+		int lettersMatch=0;
+		for(int i=0; i<s.length(); i++) {
+			if(s.charAt(i)==substring.charAt(goingThroughSubString)) {
+				lettersMatch++;
+				if(charsInSubString==lettersMatch) {
+					timesStringHadSubString++;
+					goingThroughSubString=0;
+					lettersMatch=0;
+					}
+				
+				else {
+					goingThroughSubString++;
+				}
+				}
+			else {
+				lettersMatch=0;
+				goingThroughSubString=0;
+			}
+			}
+		
+		return timesStringHadSubString;
 	}
+	
 	
 
 	// Given String s, return the number of characters between the first occurrence
