@@ -252,8 +252,36 @@ System.out.println(s3LastName);
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
-	}
+			int distanceBetweenSubStrings=0; 
+			int firstSubStringEnd=0;
+			int lastSubStringEnd=0;
+			int charsInSubString=substring.length();
+			int goingThroughSubString=0;
+			int lettersMatch=0;
+			for(int i=0; i<s.length(); i++) {
+				if(s.charAt(i)==substring.charAt(goingThroughSubString)) {
+					lettersMatch++;
+					if(charsInSubString==lettersMatch) {
+						goingThroughSubString=0;
+						lettersMatch=0;
+						firstSubStringEnd=i;
+						}
+					
+					else {
+						goingThroughSubString++;
+					}
+					}
+				else {
+					lettersMatch=0;
+					goingThroughSubString=0;
+				}
+				if(Go to the back of the array to find the substring at the end) {
+					
+				}
+				}
+			
+			return distanceBetweenSubStrings;
+		}
 
 
 	// Return true if String s is a palindrome
