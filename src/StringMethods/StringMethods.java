@@ -28,6 +28,7 @@ Character.isDigit(char c);
 Character.getNumericValue(char c);
  */
 
+
 public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
@@ -141,9 +142,6 @@ public class StringMethods {
 		tempStrings3+=s3.charAt(i);
 		String s3LastName=Character.toString(s3LastNameChar);
 		
-System.out.println(s1LastName);
-System.out.println(s2LastName);
-System.out.println(s3LastName);
 		if(s1LastName.compareTo(s2LastName)<1 && s1LastName.compareTo(s3LastName)<1) {
 			return tempStrings1;
 		}
@@ -254,7 +252,6 @@ System.out.println(s3LastName);
 	public static int distance(String s, String substring) {
 			int distanceBetweenSubStrings=0; 
 			int firstSubStringEnd=0;
-			int lastSubStringEnd=0;
 			int charsInSubString=substring.length();
 			int goingThroughSubString=0;
 			int lettersMatch=0;
@@ -262,9 +259,8 @@ System.out.println(s3LastName);
 				if(s.charAt(i)==substring.charAt(goingThroughSubString)) {
 					lettersMatch++;
 					if(charsInSubString==lettersMatch) {
-						goingThroughSubString=0;
-						lettersMatch=0;
 						firstSubStringEnd=i;
+						break;
 						}
 					
 					else {
@@ -275,12 +271,31 @@ System.out.println(s3LastName);
 					lettersMatch=0;
 					goingThroughSubString=0;
 				}
-				if(Go to the back of the array to find the substring at the end) {
-					
-				}
-				}
+			}		
 			
-			return distanceBetweenSubStrings;
+			int lastSubStringEnd=0;
+			int charsInLastSubString=substring.length();
+			int goingThroughLastSubString=substring.length()-1;
+			int lettersMatch2=0;
+			for(int i=s.length()-1; i>0; i--) {
+				if(s.charAt(i)==substring.charAt(goingThroughLastSubString)) {
+					lettersMatch2++;
+					if(charsInLastSubString==lettersMatch2) {
+						lastSubStringEnd=i;
+						break;
+						}
+					
+					else {
+						goingThroughLastSubString--;
+					}
+					}
+				else {
+					lettersMatch2=0;
+					goingThroughLastSubString=0;
+				}
+			}	
+			distanceBetweenSubStrings=lastSubStringEnd-firstSubStringEnd;
+			return distanceBetweenSubStrings-1;
 		}
 
 
@@ -288,7 +303,28 @@ System.out.println(s3LastName);
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		return true;
+		String newS="";
+		for(int i=0; i<s.length(); i++) {
+			if(s.charAt(i)==' ' || s.charAt(i)=='?' || s.charAt(i)==',' || s.charAt(i)=='â' || s.charAt(i)=='€' || s.charAt(i)=='“' || s.charAt(i)==':' || s.charAt(i)=='.') {
+			}
+			else {
+				newS+=s.charAt(i);
+			}
+		}
+		
+		boolean palindrome=true;
+		newS=newS.toLowerCase();
+		for(int j=0; j<newS.length(); j++) {
+			if(newS.charAt(j)==newS.charAt(newS.length()-1-j)) {
+				palindrome=true;
+			}
+			else {
+				palindrome=false;
+				break;
+			}
+		}
+		
+		return palindrome;
 	}
 	
 }
